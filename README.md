@@ -1,3 +1,232 @@
-# ⚓ YORCH — Private Luxury Yacht Club ### *A premium, cinematic single-page web experience for an exclusive yacht membership brand.* [![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=white&style=for-the-badge)](https://react.dev) [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white&style=for-the-badge)](https://typescriptlang.org) [![Vite](https://img.shields.io/badge/Vite-6.3-646CFF?logo=vite&logoColor=white&style=for-the-badge)](https://vitejs.dev) [![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.38-FF0050?logo=framer&logoColor=white&style=for-the-badge)](https://www.framer.com/motion/) [![GSAP](https://img.shields.io/badge/GSAP-3.14-88CE02?logo=greensock&logoColor=white&style=for-the-badge)](https://gsap.com) [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4.2-06B6D4?logo=tailwindcss&logoColor=white&style=for-the-badge)](https://tailwindcss.com) --- **YORCH** is a fully responsive, animation-rich luxury brand website built with React + TypeScript. It showcases a private yacht club's fleet, membership tiers, curated voyages, and an onboard academy — all wrapped in a cinematic UI featuring full-screen video backgrounds, glassmorphism effects, and meticulously crafted micro-interactions. [Live Demo](#) · [Report Bug](../../issues) · [Request Feature](../../issues) --- ## 📸 Screenshots > *Replace the placeholder paths below with your actual screenshots or screen recordings.* | Hero & Video Background | Fleet Specifications | Membership Tiers | |:-:|:-:|:-:| | *Cinematic hero with staggered text reveal* | *Interactive yacht spec cards with drawer* | *3-tier pricing with sticky video panel* | --- ## ✨ Key Features ### 🎬 Cinematic Visual Experience - **Full-screen video hero** with gradient overlays and parallax-style fixed positioning - **Video-backed sections** throughout — Brand Manifesto, Experiences, Academy, and Footer all feature looping cinematic backgrounds - **Smooth scroll-linked transitions** with a scroll indicator that fades on interaction ### 🧊 Glassmorphism Design System A custom multi-layered glass effect system built from first principles: | Class | Blur | Saturation | Use Case | |-------|------|------------|----------| | `.glass` | 24px | 160% | Subtle overlays | | `.glass-mid` | 32px | 180% | Buttons, CTAs | | `.glass-strong` | 48px | 200% | Prominent cards | | `.glass-card` | 20px | 150% | Interactive content cards | Each glass layer includes inner box-shadows, brightness adjustments, and semi-transparent borders for photorealistic frosted glass effects. ### ⚡ Advanced Animation Architecture #### Framer Motion (Declarative Animations) - **Staggered text reveals** on the hero headline with custom cubic-bezier easing `[0.22, 1, 0.36, 1]` - **Scroll-triggered `whileInView`** animations on membership cards, experience panels, and manifesto content - **Animated progress bars** in the Academy module grid with per-item stagger delays - **Container/children variant orchestration** for synchronized multi-element entrances #### GSAP (Imperative Timeline Animations) - **Staggered menu system** with a choreographed open/close sequence: 1. Two colored prelayers slide in from the right with staggered timing 2. Main content panel slides in behind them 3. Prelayers sweep out to the left creating a theatrical reveal 4. Nav items stagger in with offset `x` and opacity 5. Social links fade up from below - Full **timeline-based orchestration** with `kill()` on interruption for buttery-smooth reversals - Menu toggle button physically shifts position during open state via CSS transforms ### 🚢 Fleet & Yacht Specifications - **3 detailed yacht profiles**: Ocean Eclipse (28m), Black Sovereign (32m), Azure Horizon (25m) - **Comprehensive spec system** with categorized data: - Dimensions (LOA, beam, draft, gross tonnage) - Performance (cruising/top speed, range, engine specifications) - Construction (hull material, year built, naval architect) - Onboard Comfort (guest capacity, master suite, amenities, tender) - Navigation & Safety (stabilisers, classification, flag state) - **Interactive spec drawer** that slides in from the right for deep-dive details - **Fleet overlay** with video-backed yacht cards featuring hover zoom effects ### 🌊 Interactive Cursor Trail A custom `RippleTrail` component renders animated water-ripple effects that follow the user's cursor across the page, reinforcing the nautical theme through every interaction. ### 📱 Responsive Architecture - **Fluid typography** using `clamp()` throughout — headlines scale from `48px` to `130px` - **Fluid spacing** with `clamp(24px, 6vw, 96px)` patterns for consistent padding - **Breakpoint-aware menu** that shifts from a slide-in panel (`clamp(280px, 40vw, 440px)`) to full-width on mobile (`≤ 1024px`) - **Scroll-snap testimonial rail** that switches to vertical stacking on mobile (`≤ 768px`) --- ## 🏗️ Architecture & Project Structure ``` yorch/ ├── public/ │ └── videos/ # Cinematic background videos (hero, manifesto, etc.) ├── media/ # Source media assets (drone footage, yacht clips) ├── src/ │ ├── App.tsx # Root — state management for overlays & menu │ ├── main.tsx # React 19 entry point │ ├── index.css # Global design system (glass, cards, navbar, menu) │ ├── components/ │ │ ├── Hero.tsx # Full-screen video hero + staggered headline │ │ ├── Header.tsx # Floating pill navbar with scroll-aware styling │ │ ├── BrandManifesto.tsx # Philosophy section — glass card over video │ │ ├── Experiences.tsx # 3 experience cards (Charter, Racing, Concierge) │ │ ├── YachtSpecs.tsx # Fleet showcase with video cards │ │ ├── FleetOverlay.tsx # Full-screen fleet browser │ │ ├── FleetVideo.tsx # Individual yacht video player │ │ ├── SpecDrawer.tsx # Sliding specification detail panel │ │ ├── Membership.tsx # 3-tier pricing + sticky video panel │ │ ├── Academy.tsx # 6-module learning grid with progress bars │ │ ├── Testimonials.tsx # Horizontal scroll testimonial rail │ │ ├── ConciergeForm.tsx # Contact form with validation │ │ ├── Faq.tsx # Expandable FAQ accordion │ │ ├── PressStrip.tsx # Press/media logo strip │ │ ├── Footer.tsx # 3-column footer over video background │ │ ├── StaggeredMenu.tsx # GSAP-powered theatrical navigation │ │ ├── RippleTrail.tsx # Cursor-following water ripple effect │ │ ├── CookieConsent.tsx # GDPR cookie banner │ │ └── PageOverlayShell.tsx # Reusable full-page overlay container │ ├── pages/ │ │ ├── AboutPage.tsx # Company story & values │ │ ├── Blog.tsx # Journal/blog listing │ │ ├── JourneysPage.tsx # 4 curated voyages (Aegean, Caribbean, Pacific, Fjords) │ │ └── MembershipPage.tsx # Detailed membership information │ └── data/ │ ├── yachts.ts # Typed yacht specifications (3 vessels) │ └── testimonials.ts # Member testimonials (6 entries) ├── index.html # SEO-optimized entry with custom SVG favicon ├── vite.config.ts # Vite + React plugin configuration ├── tsconfig.json # TypeScript strict configuration └── package.json # Dependencies & scripts ``` --- ## 🎨 Design System ### Color Palette | Token | Value | Usage | |-------|-------|-------| | `--bg-base` | `#f8f6f2` | Warm off-white page background | | `--bg-surface` | `#ede9e3` | Elevated card surfaces | | `--accent` | `#1c3557` | Deep navy — primary brand color | | `--accent-on-dark` | `#93c5fd` | Light blue for dark-section accents | | `--text-primary` | `#0c0c0e` | Near-black body text | | `--text-muted` | `rgba(12,12,14,0.52)` | Secondary descriptions | | `--text-faint` | `rgba(12,12,14,0.28)` | Tertiary labels | ### Typography - **Primary Font**: [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif) — an elegant editorial serif - **Global text-transform**: `uppercase` — reinforces the luxury, editorial tone - **Letter-spacing**: Systematically applied from `0.12em` (body) to `0.35em` (labels) - **Line-height**: Tight headlines (`0.9–0.95`) for drama; generous body (`1.8–1.9`) for readability ### Custom Easing Curves | Token | Value | Purpose | |-------|-------|---------| | `--ease-luxury` | `cubic-bezier(0.19, 1, 0.22, 1)` | Page transitions, card hovers | | `--ease-text` | `cubic-bezier(0.22, 1, 0.36, 1)` | Text reveals and fades | | `--ease-menu` | `cubic-bezier(0.16, 1, 0.3, 1)` | Menu panel animations | --- ## 🚀 Getting Started ### Prerequisites - **Node.js** ≥ 18.x - **npm** ≥ 9.x (or yarn / pnpm) ### Installation ```bash # Clone the repository git clone https://github.com/TUSAR-SUDO/yatch.git cd yatch # Install dependencies npm install # Start the development server npm run dev ``` The app will be available at `http://localhost:5173`. ### Build for Production ```bash npm run build npm run preview ``` --- ## 🛠️ Tech Stack | Layer | Technology | Purpose | |-------|-----------|---------| | **Framework** | React 19.2 | Component-based UI with latest features | | **Language** | TypeScript 5.8 | Type-safe development with strict mode | | **Build Tool** | Vite 6.3 | Lightning-fast HMR and optimized builds | | **Styling** | Tailwind CSS 4.2 + Custom CSS | Utility-first + bespoke design tokens | | **Animation** | Framer Motion 12.38 | Declarative scroll-triggered animations | | **Animation** | GSAP 3.14 | Complex timeline-based choreography | | **Fonts** | Google Fonts (Instrument Serif) | Premium editorial typography | --- ## 📄 Pages & Sections ### Landing Page (Single-Page App) | Section | Description | |---------|-------------| | **Hero** | Cinematic video background with staggered 4-line headline reveal and floating CTA | | **Brand Manifesto** | Glass card overlay presenting YORCH's philosophy since 1975 | | **Experiences** | Three service offerings — Private Charter, Racing Program, 24/7 Concierge | | **Yacht Specifications** | Interactive fleet showcase with video cards and specification drawer | | **Testimonials** | Horizontal scroll-snap rail with 6 member quotes | | **Membership** | Three pricing tiers (Signature $24K, Commodore $58K, Founders' Circle by invitation) | | **Academy** | 6-module learning grid with animated progress indicators | | **Concierge Form** | Multi-field contact form for membership enquiries | | **FAQ** | Expandable accordion with common questions | | **Press Strip** | Media mention logos and press features | | **Footer** | 3-column navigation over cinematic video background | ### Overlay Pages | Page | Content | |------|---------| | **Journeys** | 4 curated voyages — Aegean Passage, Windward Run, Coral Expedition, Fjord Crossing | | **About** | Brand story, values, and team | | **Blog** | Journal entries and editorial content | | **Membership Detail** | In-depth tier comparison and benefits | --- ## 🎯 Technical Highlights ### State Management The app uses **React 19 `useState` hooks** at the `App` level to manage overlay visibility for the menu, fleet browser, and all four overlay pages. This centralized approach keeps the component tree predictable while avoiding unnecessary complexity from external state libraries. ### Performance Optimizations - **Passive scroll listeners** for scroll-dependent UI (hero indicator, navbar styling) - **`viewport={{ once: true }}`** on all scroll-triggered animations to prevent re-triggering - **Video elements** with `muted`, `playsInline`, and `autoPlay` for mobile-compatible autoplay - **GSAP timeline `.kill()`** on every menu animation to prevent competing timelines ### Type Safety - **Strongly typed data models** for yachts (`Yacht`, `YachtSpec`, `YachtSpecCategory`) and testimonials (`Testimonial`) - **Typed component props** with explicit interfaces for all inter-component contracts - **TypeScript strict mode** via `tsconfig.json` --- ## 📂 Key Files | File | Lines | Description | |------|-------|-------------| | [`App.tsx`](src/App.tsx) | 74 | Root component — orchestrates all sections and overlay state | | [`Hero.tsx`](src/components/Hero.tsx) | 254 | Full-screen video hero with Framer Motion staggered text | | [`StaggeredMenu.tsx`](src/components/StaggeredMenu.tsx) | 167 | GSAP-powered theatrical navigation with prelayer choreography | | [`Membership.tsx`](src/components/Membership.tsx) | 340 | 3-tier pricing cards with sticky video panel | | [`YachtSpecs.tsx`](src/components/YachtSpecs.tsx) | ~200 | Fleet showcase with interactive spec system | | [`Academy.tsx`](src/components/Academy.tsx) | 197 | 6-module learning grid with animated progress bars | | [`index.css`](src/index.css) | 221 | Complete design system — glass effects, navbar, menu, cards | | [`yachts.ts`](src/data/yachts.ts) | 209 | Typed specifications for 3 luxury vessels | --- ## 🤝 Contributing Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](../../issues). 1. Fork the repository 2. Create your feature branch (`git checkout -b feature/amazing-feature`) 3. Commit your changes (`git commit -m 'Add amazing feature'`) 4. Push to the branch (`git push origin feature/amazing-feature`) 5. Open a Pull Request --- ## 📝 License This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details. ---
-### Built with precision, designed for luxury. ⚓ **YORCH** — *The Sea Is Yours.* --- *Crafted with React, TypeScript, Framer Motion & GSAP*
+<![CDATA[<div align="center">
+# ⚓ YORCH — Private Luxury Yacht Club
+### *A premium, cinematic single-page web experience for an exclusive yacht membership brand.*
+[![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=white&style=for-the-badge)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white&style=for-the-badge)](https://typescriptlang.org)
+[![Vite](https://img.shields.io/badge/Vite-6.3-646CFF?logo=vite&logoColor=white&style=for-the-badge)](https://vitejs.dev)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.38-FF0050?logo=framer&logoColor=white&style=for-the-badge)](https://www.framer.com/motion/)
+[![GSAP](https://img.shields.io/badge/GSAP-3.14-88CE02?logo=greensock&logoColor=white&style=for-the-badge)](https://gsap.com)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4.2-06B6D4?logo=tailwindcss&logoColor=white&style=for-the-badge)](https://tailwindcss.com)
+---
+**YORCH** is a fully responsive, animation-rich luxury brand website built with React + TypeScript. It showcases a private yacht club's fleet, membership tiers, curated voyages, and an onboard academy — all wrapped in a cinematic UI featuring full-screen video backgrounds, glassmorphism effects, and meticulously crafted micro-interactions.
+[Live Demo](#) · [Report Bug](../../issues) · [Request Feature](../../issues)
+</div>
+---
+## 📸 Screenshots
+> *Replace the placeholder paths below with your actual screenshots or screen recordings.*
+| Hero & Video Background | Fleet Specifications | Membership Tiers |
+|:-:|:-:|:-:|
+| *Cinematic hero with staggered text reveal* | *Interactive yacht spec cards with drawer* | *3-tier pricing with sticky video panel* |
+---
+## ✨ Key Features
+### 🎬 Cinematic Visual Experience
+- **Full-screen video hero** with gradient overlays and parallax-style fixed positioning
+- **Video-backed sections** throughout — Brand Manifesto, Experiences, Academy, and Footer all feature looping cinematic backgrounds
+- **Smooth scroll-linked transitions** with a scroll indicator that fades on interaction
+### 🧊 Glassmorphism Design System
+A custom multi-layered glass effect system built from first principles:
+| Class | Blur | Saturation | Use Case |
+|-------|------|------------|----------|
+| `.glass` | 24px | 160% | Subtle overlays |
+| `.glass-mid` | 32px | 180% | Buttons, CTAs |
+| `.glass-strong` | 48px | 200% | Prominent cards |
+| `.glass-card` | 20px | 150% | Interactive content cards |
+Each glass layer includes inner box-shadows, brightness adjustments, and semi-transparent borders for photorealistic frosted glass effects.
+### ⚡ Advanced Animation Architecture
+#### Framer Motion (Declarative Animations)
+- **Staggered text reveals** on the hero headline with custom cubic-bezier easing `[0.22, 1, 0.36, 1]`
+- **Scroll-triggered `whileInView`** animations on membership cards, experience panels, and manifesto content
+- **Animated progress bars** in the Academy module grid with per-item stagger delays
+- **Container/children variant orchestration** for synchronized multi-element entrances
+#### GSAP (Imperative Timeline Animations)
+- **Staggered menu system** with a choreographed open/close sequence:
+  1. Two colored prelayers slide in from the right with staggered timing
+  2. Main content panel slides in behind them
+  3. Prelayers sweep out to the left creating a theatrical reveal
+  4. Nav items stagger in with offset `x` and opacity
+  5. Social links fade up from below
+- Full **timeline-based orchestration** with `kill()` on interruption for buttery-smooth reversals
+- Menu toggle button physically shifts position during open state via CSS transforms
+### 🚢 Fleet & Yacht Specifications
+- **3 detailed yacht profiles**: Ocean Eclipse (28m), Black Sovereign (32m), Azure Horizon (25m)
+- **Comprehensive spec system** with categorized data:
+  - Dimensions (LOA, beam, draft, gross tonnage)
+  - Performance (cruising/top speed, range, engine specifications)
+  - Construction (hull material, year built, naval architect)
+  - Onboard Comfort (guest capacity, master suite, amenities, tender)
+  - Navigation & Safety (stabilisers, classification, flag state)
+- **Interactive spec drawer** that slides in from the right for deep-dive details
+- **Fleet overlay** with video-backed yacht cards featuring hover zoom effects
+### 🌊 Interactive Cursor Trail
+A custom `RippleTrail` component renders animated water-ripple effects that follow the user's cursor across the page, reinforcing the nautical theme through every interaction.
+### 📱 Responsive Architecture
+- **Fluid typography** using `clamp()` throughout — headlines scale from `48px` to `130px`
+- **Fluid spacing** with `clamp(24px, 6vw, 96px)` patterns for consistent padding
+- **Breakpoint-aware menu** that shifts from a slide-in panel (`clamp(280px, 40vw, 440px)`) to full-width on mobile (`≤ 1024px`)
+- **Scroll-snap testimonial rail** that switches to vertical stacking on mobile (`≤ 768px`)
+---
+## 🏗️ Architecture & Project Structure
+```
+yorch/
+├── public/
+│   └── videos/              # Cinematic background videos (hero, manifesto, etc.)
+├── media/                   # Source media assets (drone footage, yacht clips)
+├── src/
+│   ├── App.tsx              # Root — state management for overlays & menu
+│   ├── main.tsx             # React 19 entry point
+│   ├── index.css            # Global design system (glass, cards, navbar, menu)
+│   ├── components/
+│   │   ├── Hero.tsx             # Full-screen video hero + staggered headline
+│   │   ├── Header.tsx           # Floating pill navbar with scroll-aware styling
+│   │   ├── BrandManifesto.tsx   # Philosophy section — glass card over video
+│   │   ├── Experiences.tsx      # 3 experience cards (Charter, Racing, Concierge)
+│   │   ├── YachtSpecs.tsx       # Fleet showcase with video cards
+│   │   ├── FleetOverlay.tsx     # Full-screen fleet browser
+│   │   ├── FleetVideo.tsx       # Individual yacht video player
+│   │   ├── SpecDrawer.tsx       # Sliding specification detail panel
+│   │   ├── Membership.tsx       # 3-tier pricing + sticky video panel
+│   │   ├── Academy.tsx          # 6-module learning grid with progress bars
+│   │   ├── Testimonials.tsx     # Horizontal scroll testimonial rail
+│   │   ├── ConciergeForm.tsx    # Contact form with validation
+│   │   ├── Faq.tsx              # Expandable FAQ accordion
+│   │   ├── PressStrip.tsx       # Press/media logo strip
+│   │   ├── Footer.tsx           # 3-column footer over video background
+│   │   ├── StaggeredMenu.tsx    # GSAP-powered theatrical navigation
+│   │   ├── RippleTrail.tsx      # Cursor-following water ripple effect
+│   │   ├── CookieConsent.tsx    # GDPR cookie banner
+│   │   └── PageOverlayShell.tsx # Reusable full-page overlay container
+│   ├── pages/
+│   │   ├── AboutPage.tsx        # Company story & values
+│   │   ├── Blog.tsx             # Journal/blog listing
+│   │   ├── JourneysPage.tsx     # 4 curated voyages (Aegean, Caribbean, Pacific, Fjords)
+│   │   └── MembershipPage.tsx   # Detailed membership information
+│   └── data/
+│       ├── yachts.ts            # Typed yacht specifications (3 vessels)
+│       └── testimonials.ts      # Member testimonials (6 entries)
+├── index.html                # SEO-optimized entry with custom SVG favicon
+├── vite.config.ts            # Vite + React plugin configuration
+├── tsconfig.json             # TypeScript strict configuration
+└── package.json              # Dependencies & scripts
+```
+---
+## 🎨 Design System
+### Color Palette
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--bg-base` | `#f8f6f2` | Warm off-white page background |
+| `--bg-surface` | `#ede9e3` | Elevated card surfaces |
+| `--accent` | `#1c3557` | Deep navy — primary brand color |
+| `--accent-on-dark` | `#93c5fd` | Light blue for dark-section accents |
+| `--text-primary` | `#0c0c0e` | Near-black body text |
+| `--text-muted` | `rgba(12,12,14,0.52)` | Secondary descriptions |
+| `--text-faint` | `rgba(12,12,14,0.28)` | Tertiary labels |
+### Typography
+- **Primary Font**: [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif) — an elegant editorial serif
+- **Global text-transform**: `uppercase` — reinforces the luxury, editorial tone
+- **Letter-spacing**: Systematically applied from `0.12em` (body) to `0.35em` (labels)
+- **Line-height**: Tight headlines (`0.9–0.95`) for drama; generous body (`1.8–1.9`) for readability
+### Custom Easing Curves
+| Token | Value | Purpose |
+|-------|-------|---------|
+| `--ease-luxury` | `cubic-bezier(0.19, 1, 0.22, 1)` | Page transitions, card hovers |
+| `--ease-text` | `cubic-bezier(0.22, 1, 0.36, 1)` | Text reveals and fades |
+| `--ease-menu` | `cubic-bezier(0.16, 1, 0.3, 1)` | Menu panel animations |
+---
+## 🚀 Getting Started
+### Prerequisites
+- **Node.js** ≥ 18.x
+- **npm** ≥ 9.x (or yarn / pnpm)
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/TUSAR-SUDO/yatch.git
+cd yatch
+# Install dependencies
+npm install
+# Start the development server
+npm run dev
+```
+The app will be available at `http://localhost:5173`.
+### Build for Production
+```bash
+npm run build
+npm run preview
+```
+---
+## 🛠️ Tech Stack
+| Layer | Technology | Purpose |
+|-------|-----------|---------|
+| **Framework** | React 19.2 | Component-based UI with latest features |
+| **Language** | TypeScript 5.8 | Type-safe development with strict mode |
+| **Build Tool** | Vite 6.3 | Lightning-fast HMR and optimized builds |
+| **Styling** | Tailwind CSS 4.2 + Custom CSS | Utility-first + bespoke design tokens |
+| **Animation** | Framer Motion 12.38 | Declarative scroll-triggered animations |
+| **Animation** | GSAP 3.14 | Complex timeline-based choreography |
+| **Fonts** | Google Fonts (Instrument Serif) | Premium editorial typography |
+---
+## 📄 Pages & Sections
+### Landing Page (Single-Page App)
+| Section | Description |
+|---------|-------------|
+| **Hero** | Cinematic video background with staggered 4-line headline reveal and floating CTA |
+| **Brand Manifesto** | Glass card overlay presenting YORCH's philosophy since 1975 |
+| **Experiences** | Three service offerings — Private Charter, Racing Program, 24/7 Concierge |
+| **Yacht Specifications** | Interactive fleet showcase with video cards and specification drawer |
+| **Testimonials** | Horizontal scroll-snap rail with 6 member quotes |
+| **Membership** | Three pricing tiers (Signature $24K, Commodore $58K, Founders' Circle by invitation) |
+| **Academy** | 6-module learning grid with animated progress indicators |
+| **Concierge Form** | Multi-field contact form for membership enquiries |
+| **FAQ** | Expandable accordion with common questions |
+| **Press Strip** | Media mention logos and press features |
+| **Footer** | 3-column navigation over cinematic video background |
+### Overlay Pages
+| Page | Content |
+|------|---------|
+| **Journeys** | 4 curated voyages — Aegean Passage, Windward Run, Coral Expedition, Fjord Crossing |
+| **About** | Brand story, values, and team |
+| **Blog** | Journal entries and editorial content |
+| **Membership Detail** | In-depth tier comparison and benefits |
+---
+## 🎯 Technical Highlights
+### State Management
+The app uses **React 19 `useState` hooks** at the `App` level to manage overlay visibility for the menu, fleet browser, and all four overlay pages. This centralized approach keeps the component tree predictable while avoiding unnecessary complexity from external state libraries.
+### Performance Optimizations
+- **Passive scroll listeners** for scroll-dependent UI (hero indicator, navbar styling)
+- **`viewport={{ once: true }}`** on all scroll-triggered animations to prevent re-triggering
+- **Video elements** with `muted`, `playsInline`, and `autoPlay` for mobile-compatible autoplay
+- **GSAP timeline `.kill()`** on every menu animation to prevent competing timelines
+### Type Safety
+- **Strongly typed data models** for yachts (`Yacht`, `YachtSpec`, `YachtSpecCategory`) and testimonials (`Testimonial`)
+- **Typed component props** with explicit interfaces for all inter-component contracts
+- **TypeScript strict mode** via `tsconfig.json`
+---
+## 📂 Key Files
+| File | Lines | Description |
+|------|-------|-------------|
+| [`App.tsx`](src/App.tsx) | 74 | Root component — orchestrates all sections and overlay state |
+| [`Hero.tsx`](src/components/Hero.tsx) | 254 | Full-screen video hero with Framer Motion staggered text |
+| [`StaggeredMenu.tsx`](src/components/StaggeredMenu.tsx) | 167 | GSAP-powered theatrical navigation with prelayer choreography |
+| [`Membership.tsx`](src/components/Membership.tsx) | 340 | 3-tier pricing cards with sticky video panel |
+| [`YachtSpecs.tsx`](src/components/YachtSpecs.tsx) | ~200 | Fleet showcase with interactive spec system |
+| [`Academy.tsx`](src/components/Academy.tsx) | 197 | 6-module learning grid with animated progress bars |
+| [`index.css`](src/index.css) | 221 | Complete design system — glass effects, navbar, menu, cards |
+| [`yachts.ts`](src/data/yachts.ts) | 209 | Typed specifications for 3 luxury vessels |
+---
+## 🤝 Contributing
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](../../issues).
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+---
+## 📝 License
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+---
+<div align="center">
+### Built with precision, designed for luxury.
+⚓ **YORCH** — *The Sea Is Yours.*
+---
+*Crafted with React, TypeScript, Framer Motion & GSAP*
+</div>
 ]]>
