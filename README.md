@@ -1,21 +1,15 @@
-<![CDATA[<div align="center">
-<<<<<<< HEAD
+<div align="center">
 
 # ⚓ YORCH — Private Luxury Yacht Club
 
 ### *A premium, cinematic single-page web experience for an exclusive yacht membership brand.*
 
-=======
-# ⚓ YORCH — Private Luxury Yacht Club
-### *A premium, cinematic single-page web experience for an exclusive yacht membership brand.*
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 [![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=white&style=for-the-badge)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white&style=for-the-badge)](https://typescriptlang.org)
 [![Vite](https://img.shields.io/badge/Vite-6.3-646CFF?logo=vite&logoColor=white&style=for-the-badge)](https://vitejs.dev)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.38-FF0050?logo=framer&logoColor=white&style=for-the-badge)](https://www.framer.com/motion/)
 [![GSAP](https://img.shields.io/badge/GSAP-3.14-88CE02?logo=greensock&logoColor=white&style=for-the-badge)](https://gsap.com)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4.2-06B6D4?logo=tailwindcss&logoColor=white&style=for-the-badge)](https://tailwindcss.com)
-<<<<<<< HEAD
 
 ---
 
@@ -39,58 +33,31 @@
 
 ## ✨ Key Features
 
-=======
----
-**YORCH** is a fully responsive, animation-rich luxury brand website built with React + TypeScript. It showcases a private yacht club's fleet, membership tiers, curated voyages, and an onboard academy — all wrapped in a cinematic UI featuring full-screen video backgrounds, glassmorphism effects, and meticulously crafted micro-interactions.
-[Live Demo](#) · [Report Bug](../../issues) · [Request Feature](../../issues)
-</div>
----
-## 📸 Screenshots
-> *Replace the placeholder paths below with your actual screenshots or screen recordings.*
-| Hero & Video Background | Fleet Specifications | Membership Tiers |
-|:-:|:-:|:-:|
-| *Cinematic hero with staggered text reveal* | *Interactive yacht spec cards with drawer* | *3-tier pricing with sticky video panel* |
----
-## ✨ Key Features
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 ### 🎬 Cinematic Visual Experience
 - **Full-screen video hero** with gradient overlays and parallax-style fixed positioning
 - **Video-backed sections** throughout — Brand Manifesto, Experiences, Academy, and Footer all feature looping cinematic backgrounds
 - **Smooth scroll-linked transitions** with a scroll indicator that fades on interaction
-<<<<<<< HEAD
 
 ### 🧊 Glassmorphism Design System
 A custom multi-layered glass effect system built from first principles:
 
-=======
-### 🧊 Glassmorphism Design System
-A custom multi-layered glass effect system built from first principles:
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 | Class | Blur | Saturation | Use Case |
 |-------|------|------------|----------|
 | `.glass` | 24px | 160% | Subtle overlays |
 | `.glass-mid` | 32px | 180% | Buttons, CTAs |
 | `.glass-strong` | 48px | 200% | Prominent cards |
 | `.glass-card` | 20px | 150% | Interactive content cards |
-<<<<<<< HEAD
 
 Each glass layer includes inner box-shadows, brightness adjustments, and semi-transparent borders for photorealistic frosted glass effects.
 
 ### ⚡ Advanced Animation Architecture
 
-=======
-Each glass layer includes inner box-shadows, brightness adjustments, and semi-transparent borders for photorealistic frosted glass effects.
-### ⚡ Advanced Animation Architecture
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 #### Framer Motion (Declarative Animations)
 - **Staggered text reveals** on the hero headline with custom cubic-bezier easing `[0.22, 1, 0.36, 1]`
 - **Scroll-triggered `whileInView`** animations on membership cards, experience panels, and manifesto content
 - **Animated progress bars** in the Academy module grid with per-item stagger delays
 - **Container/children variant orchestration** for synchronized multi-element entrances
-<<<<<<< HEAD
 
-=======
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 #### GSAP (Imperative Timeline Animations)
 - **Staggered menu system** with a choreographed open/close sequence:
   1. Two colored prelayers slide in from the right with staggered timing
@@ -100,10 +67,7 @@ Each glass layer includes inner box-shadows, brightness adjustments, and semi-tr
   5. Social links fade up from below
 - Full **timeline-based orchestration** with `kill()` on interruption for buttery-smooth reversals
 - Menu toggle button physically shifts position during open state via CSS transforms
-<<<<<<< HEAD
 
-=======
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 ### 🚢 Fleet & Yacht Specifications
 - **3 detailed yacht profiles**: Ocean Eclipse (28m), Black Sovereign (32m), Azure Horizon (25m)
 - **Comprehensive spec system** with categorized data:
@@ -114,30 +78,20 @@ Each glass layer includes inner box-shadows, brightness adjustments, and semi-tr
   - Navigation & Safety (stabilisers, classification, flag state)
 - **Interactive spec drawer** that slides in from the right for deep-dive details
 - **Fleet overlay** with video-backed yacht cards featuring hover zoom effects
-<<<<<<< HEAD
 
 ### 🌊 Interactive Cursor Trail
 A custom `RippleTrail` component renders animated water-ripple effects that follow the user's cursor across the page, reinforcing the nautical theme through every interaction.
 
-=======
-### 🌊 Interactive Cursor Trail
-A custom `RippleTrail` component renders animated water-ripple effects that follow the user's cursor across the page, reinforcing the nautical theme through every interaction.
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 ### 📱 Responsive Architecture
 - **Fluid typography** using `clamp()` throughout — headlines scale from `48px` to `130px`
 - **Fluid spacing** with `clamp(24px, 6vw, 96px)` patterns for consistent padding
 - **Breakpoint-aware menu** that shifts from a slide-in panel (`clamp(280px, 40vw, 440px)`) to full-width on mobile (`≤ 1024px`)
 - **Scroll-snap testimonial rail** that switches to vertical stacking on mobile (`≤ 768px`)
-<<<<<<< HEAD
 
 ---
 
 ## 🏗️ Architecture & Project Structure
 
-=======
----
-## 🏗️ Architecture & Project Structure
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 ```
 yorch/
 ├── public/
@@ -180,7 +134,6 @@ yorch/
 ├── tsconfig.json             # TypeScript strict configuration
 └── package.json              # Dependencies & scripts
 ```
-<<<<<<< HEAD
 
 ---
 
@@ -188,11 +141,6 @@ yorch/
 
 ### Color Palette
 
-=======
----
-## 🎨 Design System
-### Color Palette
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 | Token | Value | Usage |
 |-------|-------|-------|
 | `--bg-base` | `#f8f6f2` | Warm off-white page background |
@@ -202,28 +150,20 @@ yorch/
 | `--text-primary` | `#0c0c0e` | Near-black body text |
 | `--text-muted` | `rgba(12,12,14,0.52)` | Secondary descriptions |
 | `--text-faint` | `rgba(12,12,14,0.28)` | Tertiary labels |
-<<<<<<< HEAD
 
-=======
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 ### Typography
 - **Primary Font**: [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif) — an elegant editorial serif
 - **Global text-transform**: `uppercase` — reinforces the luxury, editorial tone
 - **Letter-spacing**: Systematically applied from `0.12em` (body) to `0.35em` (labels)
 - **Line-height**: Tight headlines (`0.9–0.95`) for drama; generous body (`1.8–1.9`) for readability
-<<<<<<< HEAD
 
 ### Custom Easing Curves
 
-=======
-### Custom Easing Curves
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 | Token | Value | Purpose |
-|-------|-------|---------|
+|-------|-------|---------| 
 | `--ease-luxury` | `cubic-bezier(0.19, 1, 0.22, 1)` | Page transitions, card hovers |
 | `--ease-text` | `cubic-bezier(0.22, 1, 0.36, 1)` | Text reveals and fades |
 | `--ease-menu` | `cubic-bezier(0.16, 1, 0.3, 1)` | Menu panel animations |
-<<<<<<< HEAD
 
 ---
 
@@ -235,19 +175,10 @@ yorch/
 
 ### Installation
 
-=======
----
-## 🚀 Getting Started
-### Prerequisites
-- **Node.js** ≥ 18.x
-- **npm** ≥ 9.x (or yarn / pnpm)
-### Installation
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 ```bash
 # Clone the repository
 git clone https://github.com/TUSAR-SUDO/yatch.git
 cd yatch
-<<<<<<< HEAD
 
 # Install dependencies
 npm install
@@ -260,29 +191,15 @@ The app will be available at `http://localhost:5173`.
 
 ### Build for Production
 
-=======
-# Install dependencies
-npm install
-# Start the development server
-npm run dev
-```
-The app will be available at `http://localhost:5173`.
-### Build for Production
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 ```bash
 npm run build
 npm run preview
 ```
-<<<<<<< HEAD
 
 ---
 
 ## 🛠️ Tech Stack
 
-=======
----
-## 🛠️ Tech Stack
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 | Layer | Technology | Purpose |
 |-------|-----------|---------|
 | **Framework** | React 19.2 | Component-based UI with latest features |
@@ -292,16 +209,11 @@ npm run preview
 | **Animation** | Framer Motion 12.38 | Declarative scroll-triggered animations |
 | **Animation** | GSAP 3.14 | Complex timeline-based choreography |
 | **Fonts** | Google Fonts (Instrument Serif) | Premium editorial typography |
-<<<<<<< HEAD
 
 ---
 
 ## 📄 Pages & Sections
 
-=======
----
-## 📄 Pages & Sections
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 ### Landing Page (Single-Page App)
 | Section | Description |
 |---------|-------------|
@@ -316,10 +228,7 @@ npm run preview
 | **FAQ** | Expandable accordion with common questions |
 | **Press Strip** | Media mention logos and press features |
 | **Footer** | 3-column navigation over cinematic video background |
-<<<<<<< HEAD
 
-=======
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 ### Overlay Pages
 | Page | Content |
 |------|---------|
@@ -327,7 +236,6 @@ npm run preview
 | **About** | Brand story, values, and team |
 | **Blog** | Journal entries and editorial content |
 | **Membership Detail** | In-depth tier comparison and benefits |
-<<<<<<< HEAD
 
 ---
 
@@ -336,35 +244,21 @@ npm run preview
 ### State Management
 The app uses **React 19 `useState` hooks** at the `App` level to manage overlay visibility for the menu, fleet browser, and all four overlay pages. This centralized approach keeps the component tree predictable while avoiding unnecessary complexity from external state libraries.
 
-=======
----
-## 🎯 Technical Highlights
-### State Management
-The app uses **React 19 `useState` hooks** at the `App` level to manage overlay visibility for the menu, fleet browser, and all four overlay pages. This centralized approach keeps the component tree predictable while avoiding unnecessary complexity from external state libraries.
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 ### Performance Optimizations
 - **Passive scroll listeners** for scroll-dependent UI (hero indicator, navbar styling)
 - **`viewport={{ once: true }}`** on all scroll-triggered animations to prevent re-triggering
 - **Video elements** with `muted`, `playsInline`, and `autoPlay` for mobile-compatible autoplay
 - **GSAP timeline `.kill()`** on every menu animation to prevent competing timelines
-<<<<<<< HEAD
 
-=======
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 ### Type Safety
 - **Strongly typed data models** for yachts (`Yacht`, `YachtSpec`, `YachtSpecCategory`) and testimonials (`Testimonial`)
 - **Typed component props** with explicit interfaces for all inter-component contracts
 - **TypeScript strict mode** via `tsconfig.json`
-<<<<<<< HEAD
 
 ---
 
 ## 📂 Key Files
 
-=======
----
-## 📂 Key Files
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 | File | Lines | Description |
 |------|-------|-------------|
 | [`App.tsx`](src/App.tsx) | 74 | Root component — orchestrates all sections and overlay state |
@@ -375,7 +269,6 @@ The app uses **React 19 `useState` hooks** at the `App` level to manage overlay 
 | [`Academy.tsx`](src/components/Academy.tsx) | 197 | 6-module learning grid with animated progress bars |
 | [`index.css`](src/index.css) | 221 | Complete design system — glass effects, navbar, menu, cards |
 | [`yachts.ts`](src/data/yachts.ts) | 209 | Typed specifications for 3 luxury vessels |
-<<<<<<< HEAD
 
 ---
 
@@ -383,17 +276,11 @@ The app uses **React 19 `useState` hooks** at the `App` level to manage overlay 
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](../../issues).
 
-=======
----
-## 🤝 Contributing
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](../../issues).
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-<<<<<<< HEAD
 
 ---
 
@@ -413,16 +300,4 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 *Crafted with React, TypeScript, Framer Motion & GSAP*
 
-=======
----
-## 📝 License
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
----
-<div align="center">
-### Built with precision, designed for luxury.
-⚓ **YORCH** — *The Sea Is Yours.*
----
-*Crafted with React, TypeScript, Framer Motion & GSAP*
->>>>>>> 858f23557086bee468ec22d1fd59d8b260a969d7
 </div>
-]]>
